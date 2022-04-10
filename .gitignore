@@ -11,6 +11,9 @@
 # production
 /build
 
+# comments
+/18Feat.txt
+
 # misc
 .DS_Store
 .env.local

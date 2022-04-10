@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useAppSelector } from './app/hooks';
+import DLM from './components/DLM';
+import Dropdown from './components/Dropdown';
+import Form from './components/Form';
+import Todolist from './components/Todolist';
+
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Paper } from '@mui/material';
 
 function App() {
+  const mode = useAppSelector(state => state.mode.checked)
+
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: `${mode ? "dark" : "light"}`,
+
+        },
+      }),
+    [mode],
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Paper component="div" className='App' >
+        <DLM />
+        <Form />
+        <Dropdown />
+        <Todolist />
+      </Paper>
+    </ThemeProvider>
   );
 }
 
