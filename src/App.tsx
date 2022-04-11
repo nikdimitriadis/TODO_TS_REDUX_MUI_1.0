@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useAppSelector } from './app/hooks';
 import DLM from './components/DLM';
-import Dropdown from './components/Dropdown';
+// import Dropdown from './components/Dropdown';
 import Form from './components/Form';
 import Todolist from './components/Todolist';
 
@@ -30,7 +30,7 @@ function App() {
       <Paper component="div" className='App' >
         <DLM />
         <Form />
-        <Dropdown />
+        {/* <Dropdown /> */}
         <Todolist />
       </Paper>
     </ThemeProvider>

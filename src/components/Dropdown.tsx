@@ -1,28 +1,28 @@
-import { useState } from "react";
-import { useAppDispatch } from "../app/hooks";
-import { reverseTodo } from "../features/todo/todoSlice";
+// import { useState } from "react";
+// import { useAppDispatch } from "../app/hooks";
+// import { reverseTodo } from "../features/todo/todoSlice";
 
 
 // MUI
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select /*,{ SelectChangeEvent }*/ from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
 
 
 const Dropdown = () => {
-    const [value, setValue] = useState('des')
-    const dispatch = useAppDispatch();
+    // const [value, setValue] = useState('des')
+    // const dispatch = useAppDispatch();
 
     // const sortHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     //     dispatch(reverseTodo(e.target.value))
     // }
-    const sortHandler = (e: SelectChangeEvent) => {
-        setValue(e.target.value)
-        dispatch(reverseTodo(e.target.value))
-    }
+    // const sortHandler = (e: SelectChangeEvent) => {
+    //     setValue(e.target.value)
+    //     dispatch(reverseTodo(e.target.value))
+    // }
 
     return <>
         <Box sx={{ minWidth: 400, marginTop: "1rem" }}>
@@ -32,8 +32,8 @@ const Dropdown = () => {
                     labelId="select-label"
                     id="simple-select"
                     label="Age"
-                    value={value}
-                    onChange={sortHandler}
+                // value={value}
+                // onChange={sortHandler}
                 >
                     <MenuItem value="des">Descending</MenuItem>
                     <MenuItem value="asc">Ascending</MenuItem>

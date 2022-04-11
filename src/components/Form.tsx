@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { useAppDispatch } from "../app/hooks";
-import { addTodo, } from "../features/todo/todoSlice";
+import { useAddTodoMutation } from "../features/todo/todosApi";
 
 
 import Paper from '@mui/material/Paper';
@@ -14,22 +13,23 @@ import SendIcon from '@mui/icons-material/Send';
 
 
 
+
 const Form = () => {
     const todoRef = useRef<HTMLInputElement>(null)
-    const dispatch = useAppDispatch();
+
+    const [addTodo] = useAddTodoMutation()
 
 
-    const submitHandler = (e: React.FormEvent) => {
+    const submitHandler = async (e: React.FormEvent) => {
         e.preventDefault()
         if (todoRef.current!.value.length < 1) {
             return;
         } else {
             const createTodo = {
                 text: todoRef.current!.value,
-                // id: Math.random().toString()
                 id: Date.now().toString()
             }
-            dispatch(addTodo(createTodo));
+            await addTodo(createTodo)
             todoRef.current!.value = '';
         }
 
